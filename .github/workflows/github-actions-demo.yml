@@ -17,6 +17,11 @@ jobs:
       - run: |
           echo "backend-branch=${{ github.event.inputs.backend-branch }}"
           echo "head_ref=${{ github.head_ref }}"
+          if [ -z "${{ github.event.inputs.backend-branch }}" ]; then
+            echo "zero"
+          else
+            echo "not zero"
+          fi
           if [ "${{ github.event_name }}"  == 'workflow_dispatch' ]; then
             echo "github.event_name == 'workflow_dispatch'"
           else
