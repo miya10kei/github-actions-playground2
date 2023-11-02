@@ -16,3 +16,4 @@ jobs:
       - run: |
           echo "ticket-id=${{ github.event.inputs.ticket-id }}"
           echo "base-branch${{ github.event.inputs.base-branch }}"
+          echo "base-branch${{ github.head_ref }}"
