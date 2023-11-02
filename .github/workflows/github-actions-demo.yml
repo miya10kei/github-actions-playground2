@@ -2,20 +2,16 @@ name: Dispatched
 on:
   workflow_dispatch:
     inputs:
-      ticket-id:
+      backend-branch:
         required: true
-        description: "チケットID"
-      base-branch:
-        required: true
-        description: "ベースブランチ"
+        description: "バックエンドの対応ブランチ"
 
 jobs:
   dispatch:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "ticket-id=${{ github.event.inputs.ticket-id }}"
-          echo "base-branch=${{ github.event.inputs.base-branch }}"
+          echo "backend-branch=${{ github.event.inputs.backend-branch }}"
           echo "head_ref=${{ github.head_ref }}"
           if [ "${{ github.event_name }}"  == 'workflow_dispatch' ]; then
             echo "github.event_name == 'workflow_dispatch'"
